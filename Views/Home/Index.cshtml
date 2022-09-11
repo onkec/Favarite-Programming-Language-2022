@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FaveProgrammingLang.Models.Survey>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+    <h4 class="displayy-3 text-primary">Favarite Programming Language Survey</h4>
+
+    <div class="row">
+        <p>Welcome To Favarite Programming Language Survey.</p>
+        <p>This survey will ask your Title, Name and Surname and favarite Programming Language, and then display your results!</p>
+        <div>
+            <a class="link-info" asp-controller="Surveys" asp-action="Create">Create New Survey</a>
+        </div>
+        <div>
+           <a class="link-info" asp-controller="Surveys" asp-action="Index">View Surveys</a>
+        </div>
+        
+    </div>
+</div>
+
+<div class="row">
+    
+</div>
+

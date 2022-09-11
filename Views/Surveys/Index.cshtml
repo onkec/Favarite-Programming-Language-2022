@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FaveProgrammingLang.Models.Survey>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<h4>List Of Submtted Surveys</h4>
+
+<p>
+    <a asp-action="Create">Create New Survey</a>
+</p>
+<hr />
+<br />
+@if(!Model.Any())
+{
+    <div class="arlet alert-danger" style="block-size:auto">
+        <p>There are no surveys created. Click the link below to create a new survey</p>
+    </div>
+    <div>
+        <a class="link-info" asp-controller="Surveys" asp-action="Create">Create New Survey</a>
+    </div>
+}else
+{
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Surname
+                </th>
+                <th>
+                    Favarite Programming Language
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserSurname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaveProgrammingLang)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
